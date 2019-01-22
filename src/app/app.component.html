@@ -1,0 +1,27 @@
+<div id="content" class="col-lg-10 col-lg-offset-1">
+	<header id="header" class="col-lg-12" [style.background]="header_color">
+		<h1>
+		  {{title}}
+		</h1>
+	</header>
+	
+	<nav id="nav" class="col-lg-12">
+		<ul>
+			<li><a [routerLink]="['/home']" [routerLinkActive]="['activado']">Home</a></li>
+			<li><a [routerLink]="['/tareas']" [routerLinkActive]="['activado']">Tareas</a></li>
+			<li><a [routerLink]="['/crear-tarea']" [routerLinkActive]="['activado']">Crear tarea</a></li>
+			 <input id="input" type="text" placeholder="Buscar tarea ..." class="form-control form-control-sm" 
+			 name="buscar" [(ngModel)]="busqueda">							 
+		</ul>
+	</nav>
+
+	<section id="main" class="col-lg-12">
+		<!-- Componente actual -->
+		<router-outlet></router-outlet>
+	</section>
+
+	<footer id="footer" class="col-lg-12">
+		<h4>Prueba de Front-End. - Johan Mauricio Cepeda</h4>
+	</footer>
+</div>
+

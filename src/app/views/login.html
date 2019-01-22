@@ -1,0 +1,15 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<form #loginForm="ngForm" (ngSubmit)="login(loginForm)" class="col-lg-6">
+   
+    <label>
+		Nombre
+		<span *ngIf="!nombre.valid && nombre.touched" class="label label-danger">El nombre es obligatorio</span>
+	</label>
+	<input type="text" #nombre="ngModel" name="nombre" [(ngModel)]="tarea.nombre" class="form-control" required />    
+    <input type="text" name="email" id="email" placeholder="Email" ngModel>
+    <input type="password" name="password" id="password" placeholder="Password" ngModel>
+    <button type="submit">Login</button>
+    
+</form>

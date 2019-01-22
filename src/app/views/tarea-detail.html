@@ -1,0 +1,17 @@
+
+<div *ngIf="!tarea">
+	<p>Cargando producto...</p>
+</div>
+<div class="row" *ngIf="tarea">
+	<div class="col-lg-4">
+		<br>
+	</div>
+	<div class="col-lg-10">
+		<p><strong>{{tarea.fechaCreacion}} </strong></p>
+		<p>{{tarea.id}}</p>
+		<p>{{tarea.descripcion}}</p>
+		<p>{{tarea.finalizada}}</p>
+		<p><trong>{{tarea.fechaVencimiento}}</trong></p>
+		<a [routerLink]="['/tareas']" class="btn btn-danger">Cancelar</a>
+	</div>
+</div>

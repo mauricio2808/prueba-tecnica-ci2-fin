@@ -1,0 +1,39 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<form #formTarea="ngForm" (ngSubmit)="onSubmit()" class="col-lg-6" id="form-tarea">
+
+	<label>
+		Id
+		<span *ngIf="!id.valid && id.touched" class="label label-danger">El Id es obligatorio</span>
+	</label>
+	<input type="number" #id="ngModel" name="id" [(ngModel)]="tarea.id" class="form-control" required />
+
+	<label>
+		Fecha Creación
+		<span *ngIf="!fecha.valid && fecha.touched" class="label label-danger">La fecha de creación de la tarea es obligatoria</span>
+	</label>
+	<input type="date" #nombre="ngModel" name="fecha" [(ngModel)]="tarea.fechaCreacion" class="form-control" required />
+
+	<label>
+		Descripción
+		<span *ngIf="!descripcion.valid && descripcion.touched" class="label label-danger">La descripción es obligatorio</span>
+	</label>
+	<textarea #descripcion="ngModel" name="descripcion" [(ngModel)]="tarea.descripcion" class="form-control" required></textarea>
+
+	<label>
+		Fecha Vencimiento
+		<span *ngIf="!fecha.valid && fecha.touched" class="label label-danger">La fecha de Vencimiento de la tarea es obligatoria</span>
+	</label>
+	<input type="date" #fecha="ngModel" name="fechaVencimiento" [(ngModel)]="tarea.fechaVencimiento" class="form-control">
+
+	<label>
+		Finalizada
+		<span *ngIf="!finalizada.valid && finalizada.touched" class="label label-danger">Marcar la tarea como espera o finalizada, es obligatorio</span>
+	</label>
+	<input type="radio" #fecha="ngModel" name="finalizada" [(ngModel)]="tarea.finalizada" class="form-control">
+
+	<br/>
+	<input type="submit" value="{{titulo}}" [disabled]="!formTarea.form.valid" class="btn btn-success"/>
+	<a [routerLink]="['/tareas']" class="btn btn-danger">Cancelar</a>
+</form>

@@ -1,0 +1,33 @@
+<h3>{{titulo}}</h3>
+<hr/>
+
+<div *ngIf="!tareas">
+	Cargando listado de tareas...
+</div>
+<div *ngIf="tareas">
+	<div class="row">
+		<div class="col-lg-3" *ngFor="let tarea of tareas">
+			<div class="thumbnail">			
+				<div class="caption">
+					<h3>{{tarea.fechaCreacion}}</h3>
+					<p>{{tarea.id}}</p>
+					<p>{{tarea.descripcion}}</p>
+					<p>{{tarea.finalizada}}</p>
+					<h3>{{tarea.fechaVinalizada}}</h3>
+					<div class="botones" *ngIf="confirmado != tarea.id">
+						<a [routerLink]="['/tarea', tarea.id]" class="btn btn-md btn-primary">Ver</a>
+						<a [routerLink]="['/editar-tarea', tarea.id]" class="btn btn-md btn-warning">Editar</a>
+						<a (click)="borrarConfirm(tarea.id)" class="btn btn-md btn-danger">Borrar</a>
+					</div>
+
+					<div class="seguro" *ngIf="confirmado == tarea.id">
+						<a (click)="onDeleteTarea(tarea.id)" class="btn btn-md btn-danger">
+							Quiero eliminarlo
+						</a>
+						<a (click)="cancelarConfirm()" class="btn btn-md btn-warning">Cancelar</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
